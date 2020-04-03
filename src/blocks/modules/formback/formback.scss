@@ -1,0 +1,114 @@
+.formback {
+    &__title {
+        &_mb {
+            &_70 {
+                margin-bottom: r(35);
+            }
+        }
+    }
+
+
+    // &__inner {
+    //     @include row-flex();
+    // }
+
+    &__form {
+        width: 100%;
+        &-required {
+            padding-left: 2.425rem;
+            margin-bottom: r(40);
+        }
+    }
+    &__fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+        margin-top: r(35);
+
+        &-legend {
+            font-size: r(10);
+            color: $bl;
+            border-bottom: r(2) solid $bl;
+            line-height: 2;
+            margin-bottom: r(31);
+            text-transform: uppercase;
+
+            &_mb {
+                &_large {
+                    margin-bottom: r(50);
+                }
+            }
+        }
+
+        &-wrp {
+            display: flex;
+            justify-content: space-between;
+            @include sm(flex-wrap, wrap);
+            @include sm(justify-content, flex-start)
+        }
+
+        &-box {
+            @include col();
+            @include size(12);
+            @include size-sm(12);
+            display: flex;
+            justify-content: space-around;
+        }
+
+        &-label {
+            font-size: 12px;
+            font-weight: 600;
+            position: relative;
+            @include col();
+            @include size(6);
+            @include sm(width, 100%);
+            @include sm(margin-bottom, r(15));
+            margin: 0;
+        }
+
+        &-input {
+            display: block;
+            width: 100%;
+            border: r(1) solid #E7E7E7;
+            border-radius: r(3);
+            padding: r(19) r(30);
+            font-size: 10px;
+            color: #8C8C8C;
+            margin-top: r(8);
+        }
+
+        &-confirmation {
+            @include col();
+            @include size(12);
+            display: flex;
+            margin-left: 0;
+        }
+        &-information {
+            p {
+                color: #C1C1C1;
+                padding-left: 1.9125rem;
+                margin-bottom: r(40);
+            }
+        }
+
+        &-paragraph {
+            font-weight: 500;
+            font-size: r(10);
+            &_nowrap {
+                white-space: nowrap;
+            }
+            @include sm(font-size, r(9));
+            @include sm(font-weight, 600);
+            &_color {
+                color: #C1C1C1;
+            }
+        }
+        &_size_half {
+            @include col();
+            @include size(6);
+            @include sm(width,  100%);
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

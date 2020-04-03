@@ -1,0 +1,23 @@
+extends layouts/default
+include helpers/mixins
+include ../blocks/modules/navigation/navigation.pug
+include ../blocks/modules/slide-menu/slide-menu.pug
+include ../blocks/modules/travel/travel.pug
+include ../blocks/modules/formback/formback.pug
+
+block variables
+	- const title = "gulp-pug-starter"
+
+block content
+	include ../../src/img/sprite.svg
+	#site-container
+		header
+			+navigation
+			+slide-menu
+		main
+			+travel
+			+formback
+
+block scripts
+	script(src="js/main.js")
+	script(src="js/vendor.js")

@@ -1,0 +1,107 @@
+.travel {
+    margin-bottom: r(67);
+    @include sm(margin-bottom, r(31));
+
+    &__title {
+        &_p {
+            &_46     {
+                text-align: center;
+                padding: r(46) 0;
+            }
+        }
+    }
+
+    &__offers {
+        &-wrp {
+            @include row-flex();
+            justify-content: space-between;
+        }
+    }
+
+    &__image {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+        width: 100%;
+        height: r(218);
+        @include md(height, 13.55rem);
+        @include sm(background-size, cover);
+
+        &_bg-orange {
+            background-color: #a17f20;
+        }
+
+        &_bg-green {
+            background-color: #c6c728;
+        }
+
+        &_bg-dark-blue {
+            background-color: #27393f;
+        }
+
+        &_bg-blue {
+            background-color: #d2e7fc;
+        }
+
+        &:nth-child(1):before,
+        &:nth-child(2):before,
+        &:nth-child(3):before,
+        &:nth-child(4):before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: r(160);
+            height: r(50);
+            background-color: $yel;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        &:nth-child(1):before {
+            content: "От 118 112 P";
+            text-align: center;
+            line-height: 3.5rem;
+        }
+
+    }
+
+    &__item {
+        @include col();
+        @include size(6);
+        @include size-md(6);
+        @include size-sm(12);
+        margin-bottom: r(55);
+        @include sm(margin-bottom, r(25))
+    }
+
+    &__details {
+        &-country {
+            font-size: r(9);
+            color: #c5b223;
+            text-transform: uppercase;
+            margin: r(9) 0;
+        }
+
+        &-name {
+            font-size: r(18);
+            color: $bl;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: r(20);
+        }
+
+        &-road {
+            font-size: r(9);
+            color: #8c8c8c;
+            margin-bottom: r(15);
+        }
+
+        &-sign {
+            font-size: r(9);
+            color: $bl;
+            font-weight: 600;
+            margin-bottom: r(15);
+        }
+    }
+}

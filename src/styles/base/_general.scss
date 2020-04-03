@@ -1,0 +1,194 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    @include container();
+    @include sm(max-width, rem(510));
+    @include md(max-width, rem(690));
+}
+
+body {
+    font-family: 'Museo Sans Cyrl', "Arial", sans-serif;
+    font-size: 16px;
+    color: #000;
+    overflow-x: hidden;
+    line-height: 1.75;
+    position: relative;
+    margin: 0 auto;
+    min-width: r(320);
+    opacity: 1;
+}
+
+.btn {
+    display: inline-block;
+    padding: r(17) r(74);
+    background-color: transparent;
+    border: 1px solid $bl;
+    border-radius: r(29.5);
+    text-decoration: none;
+    color: $bl;
+    &_form {
+        padding: 1.0625rem 9.625rem 1.0625rem 1.625rem;
+        background-color: $yel;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        @include sm(margin, 0 auto);
+        @include sm(display, inherit);
+        &:after {
+            content: url('../img/svg/arrow-down.svg');
+            position: absolute;
+            top: 16px;
+            right: 38px;
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+.warn-sign {
+    color: $wh;
+    background-color: $bur;
+    padding: r(3) r(13);
+    border-radius: r(3);
+}
+
+.h2_heading {
+    font-size: r(36);
+    font-weight: 700;
+    text-align: center;
+    @include sm(font-size, r(26))
+}
+
+.form-item_required {
+    position: relative;
+
+    &:after {
+        content: "*";
+        font-size: 16px;
+        color: #CB0037;
+        position: absolute;
+        top: -0.325rem;
+        right: -0.6125rem;
+    }
+    &_position:after {
+        right: 0.0875rem;
+    }
+}
+
+.custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    height: 35px;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &__span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 35px;
+        width: 35px;
+        background-color: transparent;
+        border: 1px solid #E7E7E7;
+        border-radius: r(3);
+
+        &_size_small {
+            width: r(15);
+            height: r(15);
+        }
+    }
+
+    &:hover input~&__span {
+        background-color: rgba(#ccc, .1);
+    }
+
+    &__span:after {
+        position: absolute;
+        top: -3px;
+        left: 6px;
+        display: none;
+        content: url('../img/svg/arrow-down-yellow.svg');
+
+    }
+
+    &__span_size_small:after {
+        top: -16.4px;
+        left: 1px;
+        content: url('../img/svg/arrow-down-yellow-small.svg')
+    }
+
+    input:checked~&__span:after {
+        display: block;
+    }
+
+    &-sign {
+        position: absolute;
+        top: -1.65rem;
+        left: -1.7625rem;
+        text-transform: uppercase;
+        font-size: r(10);
+        text-align: center;
+        display: block;
+        width: 5.775rem;
+        font-weight: 600;
+        line-height: 1.1;
+    }
+    &_size_small {
+        height: r(15);
+        padding-left: r(15);
+        margin-right: r(16);
+        @include sm(height, 0.4375rem)
+    }
+}
+
+.input-required {
+    border: 1px solid $bur;
+    animation: animationBorder 1.5s ease-in-out infinite;
+
+}
+
+@keyframes animationBorder {
+    0% {
+        border: 1px solid rgba($bur, .2);
+    }
+    50% {
+        border: 1px solid rgba($bur, 1);
+    }
+    100% {
+        border: 1px solid rgba($bur, .2);
+    }
+}
+
+.required-message {
+    position: absolute;
+    bottom: r(-30);
+    color: $bur;
+    font-size: r(12);
+    font-weight: 600;
+}
+
+
+.overflowHidden {
+    overflow-y: hidden;
+    width: 100%;
+}

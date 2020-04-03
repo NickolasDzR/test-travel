@@ -1,0 +1,85 @@
+mixin formback()
+    section.formback
+        .formback__title.container.formback__title_mb_70
+            h2.h2_heading  Заявка на подбор путеешествия
+        .formback__wrp
+            .formback__inner.container
+                form.formback__form
+                    div.formback__fieldset
+                        legend.formback__fieldset-legend  НЕМНОГО О ВАС
+                        div.formback__fieldset-wrp
+                            label.formback__fieldset-label   Имя
+                                span.form-item_required
+                                input.formback__fieldset-input.input-name(type="text", name="input-name" data-message="Укажите имя")
+                            label.formback__fieldset-label   Телефон
+                                input.formback__fieldset-input.input-phone(type="text", name="input-name" placeholder="+7___ ___ __ __")
+                    div.formback__fieldset
+                        legend.formback__fieldset-legend  О ПУТЕШЕСТВИИ
+                        div.formback__fieldset-wrp
+                            label.formback__fieldset-label   КУДА И КОГДА ХОТИТЕ ПОЕХАТЬ?
+                                span.form-item_required
+                                input.formback__fieldset-input.input-destination(type="text", name="input-name" placeholder="Континент, страна или город" data-message="Укажите континет, страну или город")
+                                //- span.required-message   Укажите континет, страну или город
+                            label.formback__fieldset-label   КОГДА?
+                                input.formback__fieldset-input(type="text", name="input-name" placeholder="Даты или временной интервал")
+                    .formback__fieldset-wrp
+                        div.formback__fieldset.formback__fieldset_size_half
+                            legend.formback__fieldset-legend.formback__fieldset-legend_mb_large  Удобный способ связи
+                            div.formback__fieldset-wrp
+                                .formback__fieldset-box
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign    Viber
+                                        input.custom-checkbox__input(type="checkbox", name="viber" checked)
+                                        span.custom-checkbox__span
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign   Whatsapp
+                                        input.custom-checkbox__input(type="checkbox", name="whatsapp")
+                                        span.custom-checkbox__span
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign   Почта
+                                        input.custom-checkbox__input(type="checkbox", name="")
+                                        span.custom-checkbox__span
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign Телефон
+                                        input.custom-checkbox__input(type="checkbox", name="")
+                                        span.custom-checkbox__span
+                        div.formback__fieldset.formback__fieldset_size_half
+                            legend.formback__fieldset-legend.formback__fieldset-legend_mb_large  Откуда узнали о нас
+                            div.formback__fieldset-wrp
+                                .formback__fieldset-box
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign    Интернет
+                                        input.custom-checkbox__input(type="checkbox", name="viber" checked)
+                                        span.custom-checkbox__span
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign   Рекомендовали друзья
+                                        input.custom-checkbox__input(type="checkbox", name="whatsapp")
+                                        span.custom-checkbox__span
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign   Соц.сети
+                                        input.custom-checkbox__input(type="checkbox", name="")
+                                        span.custom-checkbox__span
+                                    label.custom-checkbox
+                                        span.custom-checkbox-sign   Уже ездил
+                                        input.custom-checkbox__input(type="checkbox", name="")
+                                        span.custom-checkbox__span
+                    div.formback__fieldset
+                        .formback__fieldset-confirmation
+                            label.custom-checkbox.custom-checkbox_size_small
+                                input.custom-checkbox__input(type="checkbox", name="" checked)
+                                span.custom-checkbox__span.custom-checkbox__span_size_small
+                            p.formback__fieldset-paragraph.formback__fieldset-paragraph_nowrap   Получать свежие предложения по электронной почте
+                        .formback__fieldset-information
+                            p.formback__fieldset-paragraph  Каждую неделю мы делаем для вас обзор лучших экспедиций, статей и лайфхаков для путешественников. Если вдруг вам не понравится, вы сможете отписаться в любой момент.
+                        .formback__fieldset-confirmation
+                            label.custom-checkbox.custom-checkbox_size_small
+                                input.custom-checkbox__input.checkbox_required(type="checkbox", name="")
+                                span.custom-checkbox__span.custom-checkbox__span_size_small
+                            p.formback__fieldset-paragraph.formback__fieldset-paragraph_nowrap   С обработкой своих персональных данных согласен.
+                            span.form-item_required
+                        .formback__fieldset-information
+                            p.formback__fieldset-paragraph  Отправляя заявку я подтверждаю согласие с условиями Пользовательского соглашения
+                    .formback__form-required
+                        span.form-item_required.form-item_required_position
+                        p.formback__fieldset-paragraph.formback__fieldset-paragraph_color  Поля, которые надо обязательно заполнить
+                    button.btn.btn_form(type="submit")   ОТПРАВИТЬ   

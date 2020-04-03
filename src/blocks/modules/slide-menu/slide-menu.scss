@@ -1,0 +1,128 @@
+.slide-menu {
+    position: absolute;
+    z-index: 1;
+    top: r(64);
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    // padding: 0 r(130);
+    transform: translateX(r(800));
+    transition: all .6s linear;
+    background-color: $yel;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+
+    padding: r(26) 0 r(100) 0;
+
+    &__wrp {
+        max-width: 20rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__subject {
+        width: 100%;
+        cursor: pointer;
+
+        span {
+            width: 100%;
+            display: inline-block;
+            padding: 1.0625rem 0 1.0625rem r(30);
+            text-align: left;
+        }
+    }
+
+    &__items-wrp {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__items-wrp {
+        .slide-menu__subject:nth-child(1) {
+            width: 57%;
+        }
+
+        .slide-menu__subject:nth-child(2) {
+            width: 40%;
+        }
+    }
+
+    &__travel {
+        margin-bottom: r(54);
+    }
+
+    &__subject {
+        display: inline-block;
+        position: relative;
+        background-color: $wh;
+        border-radius: r(29.5);
+        margin-bottom: r(18);
+
+        svg {
+            position: absolute;
+            top: 26px;
+            right: 32px;
+            width: 0.8375rem;
+            height: 0.5875rem;
+        }
+    }
+
+    &__navigation {
+        font-size: 18px;
+        text-transform: uppercase;
+        text-align: center;
+
+        li {
+            list-style: none;
+
+            a {
+                border: none;
+                text-decoration: none;
+                color: $bl;
+            }
+        }
+    }
+
+    &__footer {
+        margin-top: auto;
+        text-align: center;
+
+        p {
+            margin: 0;
+            padding: 0;
+            color: #141414;
+            font-size: r(24);
+            font-weight: 700;
+        }
+
+        .btn {
+            margin-top: r(24);
+        }
+    }
+}
+
+.slide-menu_active {
+    visibility: visible;
+    transform: translateX(0);
+    opacity: 1;
+    animation: slideActive .6s ease-out;
+}
+
+@keyframes slideActive {
+    0% {
+        visibility: hidden;
+        transform: translateX(r(800));
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

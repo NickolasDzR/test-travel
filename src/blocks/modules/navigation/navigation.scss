@@ -1,57 +1,16 @@
-nav {
+.navigation {
     padding: r(32);
     background-color: $yel;
 
-    .menu-btn {
-        display: block;
+    &_position {
         position: absolute;
-        z-index: 2;
-        top: r(23);
-        right: r(23);
-        width: r(30);
-        height: r(22);
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        text-align: center;
-        line-height: 1;
+        top: 0;
+        right: 0;
+    }
 
-        span {
-            position: relative;
-        }
-
-        span, span:after, span:before {
-            content: "";
-            display: inline-block;
-            width: r(30);
-            height: r(5);
-            transition: all .2s linear;
-            background-color: $bl;
-        }
-
-        span:before {
-            position: absolute;
-            bottom: -16px;
-            transition-delay: 1s;
-        }
-
-        &_active {
-            span {
-                transform: rotateZ(45deg);
-                margin-top: r(5);
-            }
-
-            span:after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: rotateZ(-90deg);
-                transition: all .2s linear;
-            }
-
-            span:before {
-                display: none;
-            }
+    &_bg {
+        &_transparent {
+            background-color: transparent;
         }
     }
 }

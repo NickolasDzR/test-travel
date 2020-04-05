@@ -16,6 +16,20 @@ p {
     @include md(max-width, rem(690));
 }
 
+.t {
+    &_left {
+        text-align: left;
+    }
+
+    &_right {
+        text-align: right;
+    }
+
+    &_center {
+        text-align: center;
+    }
+}
+
 body {
     font-family: 'Museo Sans Cyrl', "Arial", sans-serif;
     font-size: 16px;
@@ -30,13 +44,23 @@ body {
 
 .btn {
     display: inline-block;
+    white-space: nowrap;
     padding: r(17) r(74);
     background-color: transparent;
     border: 1px solid $bl;
     border-radius: r(29.5);
     text-decoration: none;
     color: $bl;
-    &_form {
+
+    &_icon_arrow:after {
+        content: url('../img/svg/arrow-down.svg');
+        position: absolute;
+        top: 16px;
+        right: 25px;
+        transform: rotate(-90deg);
+    }
+
+    &_bg_yellow {
         padding: 1.0625rem 9.625rem 1.0625rem 1.625rem;
         background-color: $yel;
         border: none;
@@ -44,13 +68,21 @@ body {
         position: relative;
         @include sm(margin, 0 auto);
         @include sm(display, inherit);
-        &:after {
-            content: url('../img/svg/arrow-down.svg');
-            position: absolute;
-            top: 16px;
-            right: 38px;
-            transform: rotate(-90deg);
-        }
+    }
+
+    &_white {
+        padding-left: r(29);
+        padding-right: r(29);
+        background-color: $wh;
+        border: none;
+        font-size: 12px;
+        text-align: left;
+        min-width: r(190);
+        position: relative;
+    }
+
+    &_upper {
+        text-transform: uppercase;
     }
 }
 
@@ -65,7 +97,7 @@ body {
     font-size: r(36);
     font-weight: 700;
     text-align: center;
-    @include sm(font-size, r(26))
+    @include sm(font-size, r(26));
 }
 
 .form-item_required {
@@ -79,6 +111,7 @@ body {
         top: -0.325rem;
         right: -0.6125rem;
     }
+
     &_position:after {
         right: 0.0875rem;
     }
@@ -153,6 +186,7 @@ body {
         font-weight: 600;
         line-height: 1.1;
     }
+
     &_size_small {
         height: r(15);
         padding-left: r(15);
@@ -171,9 +205,11 @@ body {
     0% {
         border: 1px solid rgba($bur, .2);
     }
+
     50% {
         border: 1px solid rgba($bur, 1);
     }
+
     100% {
         border: 1px solid rgba($bur, .2);
     }
@@ -187,8 +223,204 @@ body {
     font-weight: 600;
 }
 
-
-.overflowHidden {
+.select-dropdown-country {
+    visibility: hidden;
+    opacity: 0;
+    width: r(299);
+    max-height: 480px;
+    position: absolute;
+    top: 83px;
+    left: 0;
+    background-color: $wh;
+    padding: 30px;
+    border-radius: r(29.5);
+    transition: all .4s ease-in;
     overflow-y: hidden;
+    padding-bottom: 30px;
+    z-index: 10;
+
+    &__scroll {
+        height: 480px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: r(2) !important;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: r(1) !important;
+            background-color: #C4C4C4 !important;
+        }
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 0.5125rem;
+    }
+
+    &__content {
+        display: inline-block;
+        padding: 10px 0;
+        padding-bottom: 0;
+        width: 100%;
+
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__hidden {
+        visibility: hidden;
+        height: 0;
+        padding-left: r(10);
+        position: absolute;
+        top: -1000px;
+        left: -1000px;
+        transition: all .4s ease-out;
+    }
+
+
+    li {
+        list-style: none;
+        text-align: left;
+    }
+}
+
+.overflowVisible {
+    visibility: visible;
+    height: 100%;
     width: 100%;
+    opacity: 1;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+    position: unset;
+    animation: overFlowHidden .5s linear;
+}
+
+@keyframes overFlowHidden {
+    0% {
+        height: 0%;
+        overflow: hidden;
+    }
+
+    100% {
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+.select-dropdown-type {
+    visibility: hidden;
+    opacity: 0;
+    width: 20.68rem;
+    border-radius: r(29.5);
+    background-color: $wh;
+    position: absolute;
+    left: r(-182);
+    font-size: r(14);
+    font-weight: 600;
+    padding: r(10) r(41);
+    top: 83px;
+    transition: all .4s linear;
+
+    &__item {
+        list-style: none;
+        text-align: left;
+        margin: 8px 0;
+    }
+}
+
+.active {
+    top: 43px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation: dropdownAnimation .4s ease-out !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    z-index: 100;
+}
+
+.visible {
+    padding-top: 1.0625rem;
+}
+
+.overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    transition: all .4s ease-out;
+    z-index: 10;
+}
+
+.menu-btn,
+.slide-btn {
+    display: block;
+    position: absolute;
+    // z-index: 21;
+    top: r(23);
+    right: r(23);
+    width: r(30);
+    height: r(22);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1;
+
+    span {
+        position: relative;
+    }
+
+    span,
+    span:after,
+    span:before {
+        content: "";
+        display: inline-block;
+        width: r(30);
+        height: r(5);
+        transition: all .2s linear;
+        background-color: $bl;
+    }
+
+    span:before {
+        position: absolute;
+        bottom: -16px;
+        transition-delay: 1s;
+    }
+
+    &_active {
+        margin-right: 1.0625rem;
+
+        span {
+            transform: rotateZ(45deg);
+            margin-top: r(5);
+        }
+
+        span:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateZ(-90deg);
+            transition: all .2s linear;
+        }
+
+        span:before {
+            display: none;
+        }
+    }
+
+    &_bg_white {
+
+        span,
+        span:after,
+        span:before {
+            background-color: $wh;
+        }
+    }
 }

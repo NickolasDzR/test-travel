@@ -1,11 +1,11 @@
 .slide-menu {
     position: absolute;
     z-index: 1;
-    top: r(64);
+    top: 0;
     right: 0;
     width: 50%;
-    height: 100vh;
-    // padding: 0 r(130);
+    @include sm(width, 100%);
+    min-height: 100vh;
     transform: translateX(r(800));
     transition: all .6s linear;
     background-color: $yel;
@@ -16,11 +16,11 @@
     display: flex;
     justify-content: center;
 
-    padding: r(26) 0 r(100) 0;
+    padding: r(100) 0 r(55) 0;
+    @include sm(padding, 4.25rem 0 1.4375rem 0);
 
     &__wrp {
         max-width: 20rem;
-        height: 100%;
         display: flex;
         flex-direction: column;
     }
@@ -34,6 +34,8 @@
             display: inline-block;
             padding: 1.0625rem 0 1.0625rem r(30);
             text-align: left;
+            opacity: 1;
+            transition: all .4s linear;
         }
     }
 
@@ -45,25 +47,29 @@
     &__items-wrp {
         .slide-menu__subject:nth-child(1) {
             width: 57%;
+            transition: all .4s linear;
         }
 
         .slide-menu__subject:nth-child(2) {
             width: 40%;
+            transition: all .4s linear;
         }
     }
 
     &__travel {
+        position: relative;
         margin-bottom: r(54);
     }
 
     &__subject {
         display: inline-block;
-        position: relative;
         background-color: $wh;
         border-radius: r(29.5);
         margin-bottom: r(18);
+        // animation: animationAbsolute .4s linear;
+        transition: all .4s linear;
 
-        svg {
+        >svg {
             position: absolute;
             top: 26px;
             right: 32px;
@@ -107,10 +113,13 @@
 }
 
 .slide-menu_active {
+    position: fixed;
     visibility: visible;
     transform: translateX(0);
     opacity: 1;
     animation: slideActive .6s ease-out;
+    padding-left: r(10);
+    z-index: 50;
 }
 
 @keyframes slideActive {
@@ -124,5 +133,248 @@
         visibility: visible;
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+.slide-menu__subject_active {
+    z-index: 50;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation-delay: 0.4s;
+    animation: borderRadiusDelay .2s linear;
+    width: 100% !important;
+}
+
+.slide-menu__subject.slide-menu__subject_active > svg {
+    transform: rotate(-180deg);
+    transition: all .4s linear;
+}
+
+.slide-menu__subject > svg {
+    transform: rotate(0);
+    transition: all .4s linear;
+}
+
+@keyframes borderRadiusDelay {
+    0% {
+        border-bottom-left-radius: 1.84375rem;
+        border-bottom-right-radius: 1.84375rem;
+    }
+
+    100% {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.slide-menu__subject_left {
+    top: 0 !important;
+    left: 0;
+}
+
+.slide-menu__subject_right {
+    top: 0 !important;
+    right: 0;
+    transition: all .4s linear;
+}
+
+.slide-menu__subject_absolute {
+    position: absolute !important;
+}
+
+.slide-menu__subject_relative {
+    position: relative !important;
+}
+
+.month-item-header>div {
+    display: flex;
+}
+
+.litepicker {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    top: 45px;
+    background-color: $wh;
+    border-radius: 1.84375rem;
+    transition: all .4s linear;
+}
+
+.litepicker.active {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    transition: all .4s linear;
+}
+
+.litepicker .container__months,
+.litepicker .container__months .month-item {
+    width: 299.8px !important;
+}
+
+.litepicker .container__days .day-item.is-in-range {
+    background-color: #EDEDED !important;
+}
+
+.litepicker .container__days>div,
+.litepicker .container__days>a {
+    width: 21px !important;
+    height: 21px !important;
+    padding: 0 !important;
+    margin: r(10.2) !important;
+    padding: 0px 1px 0px 0 !important;
+}
+
+.litepicker .container__days .day-item.is-start-date,
+.litepicker .container__days .day-item.is-end-date {
+    background-color: #FFD241 !important;
+    border-radius: 70% !important;
+    box-shadow: unset;
+    z-index: 2;
+}
+
+.litepicker .container__days .is-in-range:first-child {
+    position: absolute;
+    top: -100px;
+    background-color: red;
+}
+
+.litepicker .is-in-range {
+    position: relative !important;
+}
+
+.litepicker .afterElement,
+.litepicker .beforeElement {
+    position: relative;
+}
+
+.litepicker .is-in-range:after,
+.litepicker .is-in-range:hover:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 21px;
+    background-color: #EDEDED;
+    display: inline-block;
+    z-index: 1;
+    right: -33px;
+}
+
+.litepicker .is-in-range:before,
+.litepicker .is-in-range:hover:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 21px;
+    background-color: #EDEDED;
+    display: inline-block;
+    z-index: 1;
+    left: -32px;
+}
+
+.litepicker .afterElement:after,
+.litepicker .afterElement:hover:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 21px;
+    background-color: #EDEDED;
+    display: inline-block;
+    z-index: 1;
+    right: -33px;
+}
+
+.litepicker .beforeElement:before,
+.litepicker .beforeElement:hover:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 21px;
+    background-color: #EDEDED;
+    display: inline-block;
+    z-index: 1;
+    left: -33px;
+}
+
+.litepicker .container__footer {
+    display: none !important;
+}
+
+.litepicker .container__months .month-item-header {
+    justify-content: space-between !important;
+}
+
+.litepicker .container__months {
+    border-radius: r(29.5);
+}
+
+.litepicker .container__days .day-item:hover {
+    box-shadow: none !important;
+    border-radius: 50% !important;
+}
+
+.litepicker {
+    .container__days {
+        overflow: hidden;
+    }
+}
+
+.litepicker .month-item-name,
+.litepicker .month-item-year {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.button-previous-month,
+.button-next-month {
+    svg {
+        width: 9px;
+        height: 12px;
+    }
+}
+
+.button-previous-month {
+    cursor: pointer !important;
+
+    svg {
+        transform: rotate(90deg);
+    }
+}
+
+.button-next-month {
+    cursor: pointer !important;
+
+    svg {
+        transform: rotate(-90deg);
+    }
+}
+
+.month-item-header>div {
+    margin-bottom: r(3);
+}
+
+.month-item-weekdays-row {
+    font-weight: 700 !important;
+    color: $bl !important;
+}
+
+@keyframes dropdownAnimation {
+    0% {
+        top: 83px;
+        opacity: 0;
+        visibility: hidden;
+        border-radius: r(29.5);
+    }
+
+    100% {
+        top: 43px;
+        opacity: 1;
+        visibility: visible;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
 }

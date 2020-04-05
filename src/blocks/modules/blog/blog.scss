@@ -1,0 +1,75 @@
+.blog {
+    background-color: $yel;
+
+    &__wrp {
+        padding: r(59) 0 r(36);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        @include md(justify-content, center);
+    }
+
+    &__title {
+        @include col();
+        @include size(5);
+        @include size-sm(12);
+        @include sm(order, 2);
+
+        &-heading {
+            position: relative;
+
+            text-align: left;
+            padding: 0;
+            margin: 0;
+            line-height: 1.2;
+            margin-bottom: r(25);
+            padding-bottom: r(35);
+            @include md(font-size, 1.85rem);
+            @include md(padding-bottom, 1.1875rem);
+
+            &:after {
+                content: '';
+                background-color: $bl;
+                width: 100px;
+                height: 4px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        &-text {
+            display: inline-block;
+            line-height: 1.4;
+            font-weight: 700;
+            opacity: .5;
+            margin-bottom: r(25);
+            text-transform: uppercase;
+            @include md(font-size, 14px);
+        }
+
+        &-small {
+            font-size: r(12);
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: r(30);
+            @include md(margin-bottom, r(8));
+        }
+    }
+
+    &__frame {
+        @include col();
+        @include size(7);
+        @include size-sm(12);
+        @include sm(order, 1);
+        @include sm(margin-bottom, r(15));
+        background-color: #3D473F;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: inherit;
+        }
+    }
+}

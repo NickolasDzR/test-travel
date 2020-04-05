@@ -1,0 +1,29 @@
+extends ../layouts/default
+include ../helpers/mixins
+include ../../blocks/modules/navigation/navigation.pug
+include ../../blocks/modules/slide-menu/slide-menu.pug
+include ../../blocks/modules/travel-details/travel-details.pug
+include ../../blocks/modules/blog/blog.pug
+include ../../blocks/modules/callback/callback.pug
+
+block variables
+	- const title = "gulp-pug-starter"
+
+block content
+	include ../../../src/img/sprite.svg
+	#site-container
+		header
+			nav.navigation.navigation_position.navigation_bg_transparent
+				a.menu-btn.menu-btn_bg_white
+					span
+				.overlay
+			+slide-menu
+			+travel-details
+		main
+			+blog
+			+callback
+
+
+block scripts
+	script(src="js/main.js")
+	script(src="js/vendor.js")

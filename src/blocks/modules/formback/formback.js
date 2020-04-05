@@ -1,9 +1,11 @@
 import Imask from 'imask';
 
-var phoneMask = IMask(
-    document.querySelector('.input-phone'), {
-        mask: '+{7}000 000 00 00'
-    });
+if (document.querySelector('.input-phone')) {
+    var phoneMask = IMask(
+        document.querySelector('.input-phone'), {
+            mask: '+{7}000 000 00 00'
+        });
+}
 
 const btnForm = document.querySelector('.btn_form');
 const inputName = document.querySelector('.input-name');
@@ -32,7 +34,7 @@ const checkEmptyInput = () => {
 }
 
 const checkValidation = () => {
-    if (regExWords.test(inputName.value) === false && inputName.value.length > 0|| regExWords.test(inputDestination.value) === false && inputDestination.value.length > 0) {
+    if (regExWords.test(inputName.value) === false && inputName.value.length > 0 || regExWords.test(inputDestination.value) === false && inputDestination.value.length > 0) {
         if (regExWords.test(inputName.value) === false) {
             const label = inputName.parentElement;
             const requiredMessage = document.createElement('SPAN');
@@ -64,31 +66,35 @@ const checkSpanRequire = () => {
     }
 }
 
-btnForm.addEventListener('click', (e) => {
-    e.preventDefault();
-    checkSpanRequire();
-    if (inputName.value.length === 0 || inputDestination.value.length === 0) {
-        checkEmptyInput();
-    }
-    if (inputName.value.length > 0 || inputDestination.value.length > 0) {
-        console.log(inputName.value.length)
-        checkValidation();
-    }
-    if (checkedInput.nextElementSibling.classList[1] !== 'input-required') {
-        if (checkedInput.checked === false) {
-            checkedInput.nextElementSibling.classList.add('input-required');
+if (document.querySelector('.btn_form')) {
+    btnForm.addEventListener('click', (e) => {
+        e.preventDefault();
+        checkSpanRequire();
+        if (inputName.value.length === 0 || inputDestination.value.length === 0) {
+            checkEmptyInput();
         }
-    }
-});
+        if (inputName.value.length > 0 || inputDestination.value.length > 0) {
+            console.log(inputName.value.length)
+            checkValidation();
+        }
+        if (checkedInput.nextElementSibling.classList[1] !== 'input-required') {
+            if (checkedInput.checked === false) {
+                checkedInput.nextElementSibling.classList.add('input-required');
+            }
+        }
+    });
+}
 
-checkedInput.addEventListener('click', (e) => {
-    const inputClassLength = e.target.nextElementSibling.classList;
-    for (let i = 0; i < inputClassLength.length; i += 1) {
-        if (inputClassLength[i] === 'input-required') {
-            inputClassLength.remove('input-required');
+if (document.querySelector('.checkbox_required')) {
+    checkedInput.addEventListener('click', (e) => {
+        const inputClassLength = e.target.nextElementSibling.classList;
+        for (let i = 0; i < inputClassLength.length; i += 1) {
+            if (inputClassLength[i] === 'input-required') {
+                inputClassLength.remove('input-required');
+            }
         }
-    }
-});
+    });
+}
 
 const deleteRequiredSpan = (e) => {
     console.log(e.target)

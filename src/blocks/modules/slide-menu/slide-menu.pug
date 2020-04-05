@@ -13,7 +13,7 @@ mixin slide-menu()
                             .select-dropdown-country__scroll
                                 ul.select-dropdown-country__content
                                     li.select-dropdown-country__item Южная Америка
-                                        ul.select-dropdown-country__hidden
+                                        ul.select-dropdown-country__hidden.overflowVisible.animated.fadeIn
                                             li  Аргентина
                                             li  Бразилия
                                             li  Перу
@@ -157,14 +157,6 @@ mixin slide-menu()
                                             li  Уругвай
                                             li  Чили
                                             li  Эквадор
-                                    li.select-dropdown-country__item Канада
-                                        ul.select-dropdown-country__hidden
-                                            li  Аргентина
-                                            li  Бразилия
-                                            li  Перу
-                                            li  Уругвай
-                                            li  Чили
-                                            li  Эквадор
                     .slide-menu__subject.slide-menu__subject_relative
                         span.slide-menu__span(data-subject="dates")    Даты
                         svg
@@ -174,6 +166,18 @@ mixin slide-menu()
                         span.slide-menu__span(data-subject="type")    Тип путешествия
                         svg
                             use(xlink:href="#arrow-down")
+                        .select-dropdown-type
+                            ul.select-dropdown-type__content
+                                li.select-dropdown-type__item Активный
+                                li.select-dropdown-type__item  Майские
+                                li.select-dropdown-type__item  На авто
+                                li.select-dropdown-type__item  На корабле
+                                li.select-dropdown-type__item  Новый год
+                                li.select-dropdown-type__item  Поход
+                                li.select-dropdown-type__item  Серфинг
+                                li.select-dropdown-type__item  Эксклюзив
+                                li.select-dropdown-type__item  Экскурсионный
+                                li.select-dropdown-type__item  Экспедиция
             .slide-menu__navigation
                 ul
                     li

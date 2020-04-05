@@ -27,6 +27,7 @@
 
     &__subject {
         width: 100%;
+        position: relative;
         cursor: pointer;
 
         span {
@@ -42,6 +43,7 @@
     &__items-wrp {
         display: flex;
         justify-content: space-between;
+        position: relative;
     }
 
     &__items-wrp {
@@ -71,15 +73,15 @@
 
         >svg {
             position: absolute;
-            top: 26px;
-            right: 32px;
+            top: r(26);
+            right: r(32);
             width: 0.8375rem;
             height: 0.5875rem;
         }
     }
 
     &__navigation {
-        font-size: 18px;
+        font-size: r(18);
         text-transform: uppercase;
         text-align: center;
 
@@ -145,12 +147,12 @@
     width: 100% !important;
 }
 
-.slide-menu__subject.slide-menu__subject_active > svg {
+.slide-menu__subject.slide-menu__subject_active>svg {
     transform: rotate(-180deg);
     transition: all .4s linear;
 }
 
-.slide-menu__subject > svg {
+.slide-menu__subject>svg {
     transform: rotate(0);
     transition: all .4s linear;
 }
@@ -194,8 +196,8 @@
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    left: 0px;
-    top: 45px;
+    left: 0;
+    top: r(45);
     background-color: $wh;
     border-radius: 1.84375rem;
     transition: all .4s linear;
@@ -209,7 +211,7 @@
 
 .litepicker .container__months,
 .litepicker .container__months .month-item {
-    width: 299.8px !important;
+    width: r(299.8) !important;
 }
 
 .litepicker .container__days .day-item.is-in-range {
@@ -218,11 +220,11 @@
 
 .litepicker .container__days>div,
 .litepicker .container__days>a {
-    width: 21px !important;
-    height: 21px !important;
+    width: r(25) !important;
+    height: r(25) !important;
     padding: 0 !important;
-    margin: r(10.2) !important;
-    padding: 0px 1px 0px 0 !important;
+    margin: r(11.6) !important;
+    padding: 0 r(1) 0 0 !important;
 }
 
 .litepicker .container__days .day-item.is-start-date,
@@ -235,7 +237,7 @@
 
 .litepicker .container__days .is-in-range:first-child {
     position: absolute;
-    top: -100px;
+    top: r(-100);
     background-color: red;
 }
 
@@ -253,12 +255,12 @@
     content: '';
     position: absolute;
     top: 0;
-    width: 44px;
-    height: 21px;
+    width: 2.95rem;
+    height: r(25);
     background-color: #EDEDED;
     display: inline-block;
     z-index: 1;
-    right: -33px;
+    right: r(-33);
 }
 
 .litepicker .is-in-range:before,
@@ -266,12 +268,12 @@
     content: '';
     position: absolute;
     top: 0;
-    width: 44px;
-    height: 21px;
+    width: 2.95rem;
+    height: r(25);
     background-color: #EDEDED;
     display: inline-block;
     z-index: 1;
-    left: -32px;
+    left: r(-32);
 }
 
 .litepicker .afterElement:after,
@@ -279,12 +281,12 @@
     content: '';
     position: absolute;
     top: 0;
-    width: 44px;
-    height: 21px;
+    width: r(44);
+    height: r(21);
     background-color: #EDEDED;
     display: inline-block;
     z-index: 1;
-    right: -33px;
+    right: r(-33);
 }
 
 .litepicker .beforeElement:before,
@@ -292,12 +294,12 @@
     content: '';
     position: absolute;
     top: 0;
-    width: 44px;
-    height: 21px;
+    width: r(44);
+    height: r(21);
     background-color: #EDEDED;
     display: inline-block;
     z-index: 1;
-    left: -33px;
+    left: r(-33);
 }
 
 .litepicker .container__footer {
@@ -325,15 +327,15 @@
 
 .litepicker .month-item-name,
 .litepicker .month-item-year {
-    font-size: 16px;
+    font-size: r(16);
     font-weight: 600;
 }
 
 .button-previous-month,
 .button-next-month {
     svg {
-        width: 9px;
-        height: 12px;
+        width: r(9);
+        height: r(12);
     }
 }
 
@@ -364,17 +366,26 @@
 
 @keyframes dropdownAnimation {
     0% {
-        top: 83px;
+        top: r(83);
         opacity: 0;
         visibility: hidden;
         border-radius: r(29.5);
     }
 
     100% {
-        top: 43px;
+        top: r(43);
         opacity: 1;
         visibility: visible;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
+}
+
+.select-dropdown-type .active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.select-dropdown-type__item:hover {
+    background-color: rgba($gra, .1);
 }

@@ -12,11 +12,13 @@ const inputName = document.querySelector('.input-name');
 const inputDestination = document.querySelector('.input-destination');
 
 const createMessage = (label, input) => {
-    const requiredMessage = document.createElement('SPAN');
-    requiredMessage.classList = "required-message animated shake"
+    const requiredMessage = document.createElement('Span');
+    requiredMessage.classList.add("required-message", "animated", "shake");
     requiredMessage.innerHTML = input.dataset.message;
     label.appendChild(requiredMessage);
 }
+
+// animated shake"
 
 const regExWords = new RegExp(/^[^\d@#&<>\"~;$^%{}\-.\d?]+$/);
 
@@ -74,7 +76,6 @@ if (document.querySelector('.btn_form')) {
             checkEmptyInput();
         }
         if (inputName.value.length > 0 || inputDestination.value.length > 0) {
-            console.log(inputName.value.length)
             checkValidation();
         }
         if (checkedInput.nextElementSibling.classList[1] !== 'input-required') {
@@ -97,7 +98,6 @@ if (document.querySelector('.checkbox_required')) {
 }
 
 const deleteRequiredSpan = (e) => {
-    console.log(e.target)
     if (e.target.parentElement.querySelector('.required-message') !== null) {
         const requiredMessage = e.target.nextElementSibling;
         setTimeout(() => {

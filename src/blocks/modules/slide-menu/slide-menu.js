@@ -1,3 +1,8 @@
+import 'core-js';
+import "element-remove";
+import 'classlist-polyfill';
+import 'element-closest'
+import "scroll-behavior-polyfill";
 import Litepicker from 'litepicker';
 
 var picker = new Litepicker({
@@ -16,12 +21,15 @@ const litePicker = document.querySelector('.litepicker'),
     subjectDatesTypes = document.querySelector('[data-subject="dates"]'),
     subjectCountriesTypes = document.querySelector('[data-subject="countries"]'),
     slideMenuItemsWrp = document.querySelector('.slide-menu__items-wrp'),
-    selectDropdownCountry = document.querySelector('.select-dropdown-country');
+    selectDropdownCountry = document.querySelector('.select-dropdown-country'),
+    spanTypeTravel = document.querySelector('[data-subject="type"]');
 
 const appendLitePicker = () => {
     slideMenuItemsWrp.appendChild(litePicker);
 }
 appendLitePicker();
+
+const selectDropdownType = document.querySelector('.select-dropdown-type');
 
 subjectDatesTypes.addEventListener('click', () => {
     if (selectDropdownCountry.classList.contains('active')) {
@@ -30,6 +38,10 @@ subjectDatesTypes.addEventListener('click', () => {
     if (litePicker.classList.contains('active')) {
         litePicker.classList.remove('active');
     } else {
+        if (selectDropdownType.classList.contains('active')) {
+            spanTypeTravel.parentElement.style.removeProperty('border-radius');
+            selectDropdownType.classList.remove('active')
+        }
         setTimeout(() => {
             litePicker.classList.add('active');
         }, 400)
@@ -43,6 +55,13 @@ subjectCountriesTypes.addEventListener('click', () => {
     if (selectDropdownCountry.classList.contains('active')) {
         selectDropdownCountry.classList.remove('active');
     } else {
+        if (selectDropdownCountry.classList.contains('active')) {
+            selectDropdownCountry.classList.remove('active')
+        }
+        if (selectDropdownType.classList.contains('active')) {
+            spanTypeTravel.parentElement.style.removeProperty('border-radius');
+            selectDropdownType.classList.remove('active')
+        }
         setTimeout(() => {
             selectDropdownCountry.classList.add('active');
         }, 400)
@@ -76,7 +95,7 @@ const slideMenuTravel = document.querySelector('.slide-menu__travel'),
 // animation for dates(calendar) and countries selescts //
 
 const subjectDatesAnimation = () => {
-    if (subjectDatesTypes.parentElement.classList.contains('slide-menu__subject_active') ) {
+    if (subjectDatesTypes.parentElement.classList.contains('slide-menu__subject_active')) {
         setTimeout(() => {
             subjectDatesTypes.parentElement.classList.add('slide-menu__subject_relative');
             subjectDatesTypes.parentElement.classList.remove('slide-menu__subject_absolute');
@@ -135,9 +154,11 @@ if (document.querySelector('.select-dropdown-country__content')) {
                     selectDropdownCountryHidden[i].classList.remove("overflowVisible", "animated", "fadeIn");
                 }
             }
+
             e.target.children[0].classList.add('overflowVisible');
             e.target.children[0].classList.add('animated');
             e.target.children[0].classList.add('fadeIn');
+
         }
         return;
     });
@@ -153,25 +174,23 @@ const styleBackgroundLi = (e) => {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.toElement.tagName === "LI" && e.target.parentElement.classList.contains('select-dropdown-country__hidden')) {
+    if (e.target.nodeName === "LI" && e.target.parentElement.classList.contains('select-dropdown-country__hidden')) {
         styleBackgroundLi(e);
     }
 });
 
 document.addEventListener('click', (e) => {
-    if (e.toElement.tagName === "LI" && e.target.parentElement.classList.contains('select-dropdown-type__content')) {
+    if (e.target.nodeName === "LI" && e.target.parentElement.classList.contains('select-dropdown-type__content')) {
         styleBackgroundLi(e);
     }
 });
-
-const spanTypeTravel = document.querySelector('[data-subject="type"]')
 
 spanTypeTravel.addEventListener('click', (e) => {
     for (let dropdown of e.target.parentElement.children) {
         if (dropdown.classList.contains('select-dropdown-type')) {
             if (dropdown.classList.contains('active')) {
                 dropdown.classList.remove('active');
-                spanTypeTravel.parentElement.style.removeProperty('border-radius')
+                spanTypeTravel.parentElement.style.removeProperty('border-radius');
             } else {
                 dropdown.classList.add('active');
                 spanTypeTravel.parentElement.style.borderBottomLeftRadius = '0'

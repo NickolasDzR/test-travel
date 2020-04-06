@@ -31,8 +31,8 @@
             &:after {
                 content: '';
                 background-color: $bl;
-                width: 100px;
-                height: 4px;
+                width: r(100);
+                height: r(4);
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -46,7 +46,7 @@
             opacity: .5;
             margin-bottom: r(25);
             text-transform: uppercase;
-            @include md(font-size, 14px);
+            @include md(font-size, r(14));
         }
 
         &-small {

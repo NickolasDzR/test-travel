@@ -1,6 +1,7 @@
 mixin slide-menu()
     .slide-menu
-        a.slide-btn.slide-btn_active.slide-btn_bg_white
+        //- a.slide-btn.slide-btn_active.slide-btn_bg_white
+        a(class = btnWhite ? 'slide-btn slide-btn_active slide-btn_bg_white' : 'slide-btn slide-btn_active')
             span
         .slide-menu__wrp
             .slide-menu__travel
@@ -13,7 +14,7 @@ mixin slide-menu()
                             .select-dropdown-country__scroll
                                 ul.select-dropdown-country__content
                                     li.select-dropdown-country__item Южная Америка
-                                        ul.select-dropdown-country__hidden.overflowVisible.animated.fadeIn
+                                        ul.select-dropdown-country__hidden.overflowVisible
                                             li  Аргентина
                                             li  Бразилия
                                             li  Перу

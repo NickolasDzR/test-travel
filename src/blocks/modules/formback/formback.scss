@@ -1,5 +1,5 @@
 .formback {
-    padding-bottom: 167px;
+    padding-bottom: r(167);
     &__title {
         &_mb {
             &_70 {
@@ -52,7 +52,7 @@
         }
 
         &-label {
-            font-size: 12px;
+            font-size: r(12);
             font-weight: 600;
             position: relative;
             @include col();
@@ -68,7 +68,7 @@
             border: r(1) solid #E7E7E7;
             border-radius: r(3);
             padding: r(19) r(30);
-            font-size: 10px;
+            font-size: r(10);
             color: #8C8C8C;
             margin-top: r(8);
         }

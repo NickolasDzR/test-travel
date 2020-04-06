@@ -1,5 +1,5 @@
 mixin navigation()
-    nav.navigation
-        a.menu-btn
+    nav(class = navTransparent ? 'navigation navigation_position navigation_bg_transparent' : 'navigation')
+        a.menu-btn(class = btnWhite ? 'menu-btn menu-btn_bg_white' : 'menu-btn')
             span
         .overlay

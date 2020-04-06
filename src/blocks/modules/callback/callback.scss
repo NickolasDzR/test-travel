@@ -1,14 +1,14 @@
 .callback {
-    min-height: r(429);
+    height: r(429);
     display: flex;
     justify-content: flex-end;
     @include sm(justify-content, center);
     align-items: flex-end;
-    padding-bottom: 55px;
+    padding-bottom: r(55);
 
     &__paragraph {
         font-weight: 700;
-        font-size: 28px;
-        letter-spacing: 3px;
+        font-size: r(28);
+        letter-spacing: r(3);
     }
 }
